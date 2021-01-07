@@ -19,8 +19,9 @@ const fontAndIconColor = '#fff';
 
 const TabButton = (props) => {
   const {index, activeIcon, inactiveIcon, title, active} = props;
+
   const clickHandler = () => {
-    console.log('click handler be called');
+    props.onClickHandler(index);
   };
 
   return (
