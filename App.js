@@ -25,8 +25,8 @@ const App = () => {
         <NavigationContainer>
           {/* todo 测试代码 */}
           <Navigator
-            initialRouteName="Layout"
-            // initialRouteName="Setting"
+            // initialRouteName="Layout"
+            initialRouteName="Setting"
             screenOptions={{headerShown: false}}>
             <Screen name="Layout" component={LayoutScreenContainer} />
             <Screen name="Setting" component={SettingScreen} />
