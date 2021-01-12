@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {Header} from 'react-native-elements';
 import AntDIcon from 'react-native-vector-icons/AntDesign';
 
 const BackHeader = (props) => {
-  const [rightComponent, setRightComponent] = useState(props.rightComponent);
-
   const back = () => {
     props.onBack();
   };
@@ -21,8 +19,8 @@ const BackHeader = (props) => {
   return (
     <Header
       leftComponent={leftButton}
-      rightComponent={rightComponent}
-      centerComponent={{text: '模板设置', style: {color: '#fff'}}}
+      rightComponent={props.rightComponent}
+      centerComponent={{text: props.title, style: {color: '#fff'}}}
     />
   );
 };

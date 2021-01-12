@@ -9,6 +9,8 @@ import {Provider, connect} from 'react-redux';
 // 导航注册的Screen
 import LayoutScreen from './screens/LayoutScreen';
 import SettingScreen from './screens/SettingScreen';
+import ContentScreen from './screens/Mail/ContentScreen';
+import SignScreen from './screens/Mail/SignScreen';
 
 const LayoutScreenContainer = connect((state) => {
   return {screenName: state.navigator.screenName};
@@ -25,11 +27,14 @@ const App = () => {
         <NavigationContainer>
           {/* todo 测试代码 */}
           <Navigator
-            // initialRouteName="Layout"
-            initialRouteName="Setting"
+            initialRouteName="Layout"
+            // initialRouteName="Setting"
+            // initialRouteName="Test1"
             screenOptions={{headerShown: false}}>
             <Screen name="Layout" component={LayoutScreenContainer} />
             <Screen name="Setting" component={SettingScreen} />
+            <Screen name="Mail/Content" component={ContentScreen} />
+            <Screen name="Mail/Sign" component={SignScreen} />
           </Navigator>
         </NavigationContainer>
       </ThemeProvider>

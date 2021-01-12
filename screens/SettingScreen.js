@@ -10,12 +10,17 @@ const SettingScreen = ({navigation}) => {
   const saveTemplate = () => {
     // todo 获取并保存模板
     console.log('save template');
+    console.log(settings.current.getTemplate());
+  };
+
+  const goBack = () => {
+    navigation.goBack();
   };
 
   const rightComponent = () => {
     return (
       <TouchableOpacity onPress={saveTemplate}>
-        <AntDIcon name={'arrowleft'} color={'#fff'} size={30} />
+        <AntDIcon name={'check'} color={'#fff'} size={30} />
       </TouchableOpacity>
     );
   };
@@ -23,12 +28,15 @@ const SettingScreen = ({navigation}) => {
   return (
     <>
       <BackHeader
-        onBack={() => {
-          navigation.goBack();
-        }}
+        title="模板设置"
+        onBack={goBack}
         rightComponent={rightComponent}
       />
-      <Setting ref={settings} />
+      <Setting
+        ref={settings}
+        onEditContent={() => navigation.push('Mail/Content')}
+        onEditSign={() => navigation.push('Mail/Sign')}
+      />
     </>
   );
 };

@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 // import {Text, Divider} from 'react-native-elements';
 import GroupTitle from './GroupTitle';
+import FormItemContainer from './FormItemContainer';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,10 +13,10 @@ const styles = StyleSheet.create({
 
 const FormItemGroup = ({title, children}) => {
   return (
-    <View style={styles.container}>
+    <FormItemContainer style={styles.container}>
       <GroupTitle title={title} />
       {children}
-    </View>
+    </FormItemContainer>
   );
 };
 
