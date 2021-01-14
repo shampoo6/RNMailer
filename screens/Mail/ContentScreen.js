@@ -3,8 +3,12 @@ import {RichEditor, RichToolbar} from 'react-native-pell-rich-editor';
 import {TouchableOpacity} from 'react-native';
 import AntDIcon from 'react-native-vector-icons/AntDesign';
 import {Header} from 'react-native-elements';
+import {useDispatch} from 'react-redux';
+import {getTemplate, setContent} from '../../stores/mailTemplate';
 
 const ContentScreen = (props) => {
+  const dispatch = useDispatch();
+
   let contentStyle = {
     backgroundColor: '#fff',
     // color: '#fff',
@@ -13,14 +17,24 @@ const ContentScreen = (props) => {
     contentCSSText: 'font-size: 16px; min-height: 200px; height: 100%;', // initial valid
   };
   const editor = useRef();
+
   let _html = '';
+
+  dispatch(getTemplate()).then((template) => {
+    _html = template.content;
+  });
+
+  const onEditReady = () => {
+    console.log('ready');
+    editor.current.setContentHTML(_html);
+  };
 
   const handleChange = (html) => {
     _html = html;
   };
 
   const save = () => {
-    console.log(_html);
+    dispatch(setContent(_html));
     goBack();
   };
 
@@ -58,6 +72,7 @@ const ContentScreen = (props) => {
         placeholder={'请输入'}
         initialContentHTML={_html}
         onChange={handleChange}
+        editorInitializedCallback={onEditReady}
       />
       <RichToolbar
         editor={editor}

@@ -3,14 +3,21 @@ import BackHeader from '../components/BackHeader';
 import Setting from '../components/Setting';
 import AntDIcon from 'react-native-vector-icons/AntDesign';
 import {TouchableOpacity} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {getTemplate, setTemplate} from '../stores/mailTemplate';
 
 // 有一个header用于导航返回的页面
 const SettingScreen = ({navigation}) => {
+  const dispatch = useDispatch();
   const settings = useRef();
+
+  dispatch(getTemplate()).then((_template) => {
+    settings.current.setTemplate(_template);
+  });
+
   const saveTemplate = () => {
-    // todo 获取并保存模板
-    console.log('save template');
-    console.log(settings.current.getTemplate());
+    dispatch(setTemplate(settings.current.getTemplate()));
+    navigation.goBack();
   };
 
   const goBack = () => {
