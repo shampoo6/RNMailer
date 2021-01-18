@@ -7,8 +7,8 @@ const defaultTemplate = {
   pwd: 'PDIVXWEXEPZWGXDR',
   smtp: 'smtp.163.com',
   name: '陆宪甫2233',
-  to: 'hywllxf@163.com, 454714691@qq.com',
-  cc: '2721445883@qq.com',
+  to: 'hywllxf@163.com',
+  cc: '2721445883@qq.com, 454714691@qq.com',
   subject: '测试主题',
   content: '测试内容',
   sign:

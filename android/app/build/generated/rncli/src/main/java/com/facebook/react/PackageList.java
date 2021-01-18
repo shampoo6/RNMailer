@@ -23,6 +23,8 @@ import com.swmansion.reanimated.ReanimatedPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
+// react-native-smtp-mailer
+import com.rnsmtpmailer.RNSmtpMailerPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 // react-native-webview
@@ -78,6 +80,7 @@ public class PackageList {
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
+      new RNSmtpMailerPackage(),
       new VectorIconsPackage(),
       new RNCWebViewPackage()
     ));
