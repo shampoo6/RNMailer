@@ -2,18 +2,10 @@ import React from 'react';
 import {ScrollView} from 'react-native';
 import {Input, Button} from 'react-native-elements';
 import FormItemGroup from './FormItemGroup';
-import {RichEditor, RichToolbar} from 'react-native-pell-rich-editor';
 import FormItemContainer from './FormItemContainer';
 
 class Setting extends React.Component {
   editor;
-  contentStyle = {
-    backgroundColor: '#fff',
-    // color: '#fff',
-    placeholderColor: 'gray',
-    // cssText: '#editor {background-color: #f3f3f3}', // initial valid
-    contentCSSText: 'font-size: 16px; min-height: 200px; height: 100%;', // initial valid
-  };
 
   constructor(props) {
     super(props);

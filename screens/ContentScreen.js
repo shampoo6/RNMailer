@@ -4,7 +4,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Tab1Screen from './Tab1Screen';
 import Tab2Screen from './Tab2Screen';
 import Tab3Screen from './Tab3Screen';
-import SendMailScreen from './SendMailScreen';
 
 const Stack = createStackNavigator();
 const Navigator = Stack.Navigator;
@@ -26,7 +25,6 @@ const ContentScreen = () => {
       <Screen name="Tab1" component={Tab1ScreenContainer} />
       <Screen name="Tab2" component={Tab2ScreenContainer} />
       <Screen name="Tab3" component={Tab3ScreenContainer} />
-      <Screen name="SendMail" component={SendMailScreen} />
     </Navigator>
   );
 };

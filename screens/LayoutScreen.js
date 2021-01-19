@@ -41,7 +41,10 @@ const LayoutScreen = ({navigation}) => {
     <>
       <HeaderContainer
         onSettingClick={() => {
-          navigation.navigate('Setting');
+          navigation.push('Setting');
+        }}
+        onMailClick={() => {
+          navigation.push('SendMail');
         }}
       />
       <ContentScreen />

@@ -24,7 +24,6 @@ const ContentScreen = (props) => {
   });
 
   const onEditReady = () => {
-    console.log('ready');
     editor.current.setContentHTML(_html);
   };
 

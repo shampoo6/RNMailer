@@ -11,6 +11,7 @@ import LayoutScreen from './screens/LayoutScreen';
 import SettingScreen from './screens/SettingScreen';
 import ContentScreen from './screens/Mail/ContentScreen';
 import SignScreen from './screens/Mail/SignScreen';
+import SendMailScreen from './screens/SendMailScreen';
 
 const LayoutScreenContainer = connect((state) => {
   return {screenName: state.navigator.screenName};
@@ -35,6 +36,7 @@ const App = () => {
             <Screen name="Setting" component={SettingScreen} />
             <Screen name="Mail/Content" component={ContentScreen} />
             <Screen name="Mail/Sign" component={SignScreen} />
+            <Screen name="SendMail" component={SendMailScreen} />
           </Navigator>
         </NavigationContainer>
       </ThemeProvider>

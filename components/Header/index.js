@@ -10,10 +10,22 @@ const Header = (props) => {
     props.onSettingClick();
   };
 
+  const onMailClick = () => {
+    props.onMailClick();
+  };
+
   const leftButton = () => {
     return (
       <TouchableOpacity onPress={onSettingClick}>
         <AntDIcon name={'setting'} color={'#fff'} size={30} />
+      </TouchableOpacity>
+    );
+  };
+
+  const rightButton = () => {
+    return (
+      <TouchableOpacity onPress={onMailClick}>
+        <AntDIcon name={'mail'} color={'#fff'} size={30} />
       </TouchableOpacity>
     );
   };
@@ -23,7 +35,8 @@ const Header = (props) => {
       // leftComponent={{icon: 'menu', color: '#fff'}}
       leftComponent={leftButton}
       centerComponent={{text: screenName, style: {color: '#fff'}}}
-      rightComponent={{icon: 'home', color: '#fff'}}
+      // rightComponent={{icon: 'home', color: '#fff'}}
+      rightComponent={rightButton}
     />
   );
 };
