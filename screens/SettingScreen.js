@@ -35,7 +35,7 @@ const SettingScreen = ({navigation}) => {
   return (
     <>
       <BackHeader
-        title="模板设置"
+        title="设置"
         onBack={goBack}
         rightComponent={rightComponent}
       />
