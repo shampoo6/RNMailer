@@ -25,33 +25,26 @@ const BottomTabs = (props) => {
   const setActives = [setActive1, setActive2, setActive3];
 
   let tabs = [
-    // {
-    //   title: 'tab1',
-    //   screenName: 'Tab1',
-    //   activeIcon: 'add-circle',
-    //   inactiveIcon: 'add-circle-outline',
-    //   active: active1,
-    // },
     {
-      title: '发送邮件',
-      screenName: 'SendMail',
-      activeIcon: 'mail',
-      inactiveIcon: 'mail-outline',
+      title: 'tab1',
+      screenName: 'Tab1',
+      activeIcon: 'add-circle',
+      inactiveIcon: 'add-circle-outline',
       active: active1,
     },
+    // {
+    //   title: '发送邮件',
+    //   screenName: 'SendMail',
+    //   activeIcon: 'mail',
+    //   inactiveIcon: 'mail-outline',
+    //   active: active1,
+    // },
     {
       title: 'tab2',
       screenName: 'Tab2',
       activeIcon: 'add-circle',
       inactiveIcon: 'add-circle-outline',
       active: active2,
-    },
-    {
-      title: 'tab3',
-      screenName: 'Tab3',
-      activeIcon: 'add-circle',
-      inactiveIcon: 'add-circle-outline',
-      active: active3,
     },
   ];
 

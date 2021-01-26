@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import BottomTabs from '../components/BottomTabs';
 import {connect} from 'react-redux';
 import Header from '../components/Header';
 import ContentScreen from './ContentScreen';
+import quitBackHandler from '../utils/quitBackHandler';
+import Toast from 'react-native-easy-toast';
 // import Drawer from '../components/Drawer';
 
 // const styles = StyleSheet.create({
@@ -30,7 +32,14 @@ const HeaderContainer = connect((state) => {
 })(Header);
 
 const LayoutScreen = ({navigation}) => {
-  // const drawer = useRef(null);
+  const toast = useRef();
+
+  useEffect(() => {
+    quitBackHandler.register(toast.current);
+    return () => {
+      quitBackHandler.unregister();
+    };
+  }, []);
 
   return (
     // <DrawerLayoutAndroid
@@ -39,6 +48,7 @@ const LayoutScreen = ({navigation}) => {
     //   drawerPosition="left"
     //   renderNavigationView={Drawer}>
     <>
+      <Toast ref={toast} position="bottom" />
       <HeaderContainer
         onSettingClick={() => {
           navigation.push('Setting');
