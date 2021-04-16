@@ -5913,11 +5913,6 @@ react-native-pell-rich-editor@^1.6.4:
   resolved "https://registry.npm.taobao.org/react-native-pell-rich-editor/download/react-native-pell-rich-editor-1.6.4.tgz#585a3abc275df20337f14686f643fed8b1e4d7ab"
   integrity sha1-WFo6vCdd8gM38UaG9kP+2LHk16s=
 
-react-native-push-notification@^7.2.3:
-  version "7.2.3"
-  resolved "https://registry.npm.taobao.org/react-native-push-notification/download/react-native-push-notification-7.2.3.tgz#e5efa0d48bfa27ad0cab538ba859b5f2cd21b684"
-  integrity sha1-5e+g1Iv6J60Mq1OLqFm18s0htoQ=
-
 react-native-ratings@^7.3.0:
   version "7.3.0"
   resolved "https://registry.npm.taobao.org/react-native-ratings/download/react-native-ratings-7.3.0.tgz#32e11e4ed944ba8adbbc995d601df3f131619b6f"

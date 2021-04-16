@@ -32,7 +32,7 @@ const HeaderContainer = connect((state) => {
 })(Header);
 
 const LayoutScreen = ({navigation}) => {
-  global.nav = navigation
+  global.nav = navigation;
   const toast = useRef();
 
   useEffect(() => {
