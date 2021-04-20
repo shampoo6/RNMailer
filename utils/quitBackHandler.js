@@ -1,4 +1,4 @@
-import {BackHandler} from 'react-native';
+import {BackHandler, ToastAndroid} from 'react-native';
 
 // const registerBackHandler = (route, toast) => {
 //   if (route.name === 'Layout') {
@@ -14,30 +14,37 @@ import {BackHandler} from 'react-native';
 class QuitBackHandler {
   // 计时器索引
   timerIndex;
-  toast;
 
   constructor() {
     this.handler = this.handler.bind(this);
   }
 
   // 注册返回按钮事件处理程序
-  register(_toast) {
-    this.toast = _toast;
+  register() {
     BackHandler.addEventListener('hardwareBackPress', this.handler);
   }
 
   handler() {
     console.log('back button trigger');
-    this.toast.show('再次返回 将退出 ', 3000);
-    BackHandler.removeEventListener('hardwareBackPress', this.handler);
+    // this.toast.show('再次返回 将退出 ', 3000);
+    ToastAndroid.showWithGravityAndOffset(
+      '再次返回 将退出 ',
+      3000,
+      ToastAndroid.BOTTOM,
+      0,
+      50,
+    );
+    // BackHandler.removeEventListener('hardwareBackPress', this.handler);
+    this.unregister();
     this.timerIndex = setTimeout(() => {
-      this.register(this.toast);
+      console.log('re register back event');
+      this.register();
     }, 3000);
-    return true;
+    return true; // 返回true 将不会执行后退键的默认行为
   }
 
   unregister() {
-    BackHandler.removeEventListener('hardwareBackPress');
+    BackHandler.removeEventListener('hardwareBackPress', this.handler);
     clearTimeout(this.timerIndex);
   }
 }

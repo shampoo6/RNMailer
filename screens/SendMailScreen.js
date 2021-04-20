@@ -1,17 +1,22 @@
-import React, {useRef} from 'react';
-import {ScrollView, TouchableOpacity, View, StyleSheet} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {
+  ScrollView,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+  ToastAndroid,
+} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {getTemplate} from '../stores/mailTemplate';
 import mailer from '../utils/mailer';
 import {RichEditor, RichToolbar} from 'react-native-pell-rich-editor';
 import BackHeader from '../components/BackHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Toast from 'react-native-easy-toast';
 
 const SendMailScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const editor = useRef();
-  const toast = useRef();
+  const [disableBtn, setDisableBtn] = useState(false);
 
   const contentStyle = {
     backgroundColor: '#fff',
@@ -23,7 +28,7 @@ const SendMailScreen = ({navigation}) => {
 
   const rightComponent = () => {
     return (
-      <TouchableOpacity onPress={sendMail}>
+      <TouchableOpacity onPress={sendMail} disabled={disableBtn}>
         <Ionicons name={'send-outline'} color={'#fff'} size={25} />
       </TouchableOpacity>
     );
@@ -36,13 +41,29 @@ const SendMailScreen = ({navigation}) => {
   });
 
   const sendMail = () => {
+    setDisableBtn(true);
     mailer.sendMail(template).then((result) => {
       console.log(result);
       if (result) {
-        toast.current.show('发送成功 ', 5000);
+        // toast.current.show('发送成功 ', 5000);
+        ToastAndroid.showWithGravityAndOffset(
+          '发送成功',
+          5000,
+          ToastAndroid.TOP,
+          0,
+          50,
+        );
       } else {
-        toast.current.show('发送失败 请重试 ', 5000);
+        // toast.current.show('发送失败 请重试 ', 5000);
+        ToastAndroid.showWithGravityAndOffset(
+          '发送失败 请重试',
+          5000,
+          ToastAndroid.TOP,
+          0,
+          50,
+        );
       }
+      setDisableBtn(false);
     });
   };
 
@@ -60,7 +81,6 @@ const SendMailScreen = ({navigation}) => {
 
   return (
     <>
-      <Toast ref={toast} position="top" />
       <BackHeader
         title="发送邮件"
         onBack={goBack}

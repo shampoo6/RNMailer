@@ -20,27 +20,19 @@ const styles = StyleSheet.create({
 const BottomTabs = (props) => {
   const [active1, setActive1] = useState(false);
   const [active2, setActive2] = useState(true);
-  const [active3, setActive3] = useState(false);
 
-  const setActives = [setActive1, setActive2, setActive3];
+  const setActives = [setActive1, setActive2];
 
   let tabs = [
     {
-      title: 'tab1',
+      title: 'hehe',
       screenName: 'Tab1',
       activeIcon: 'add-circle',
       inactiveIcon: 'add-circle-outline',
       active: active1,
     },
-    // {
-    //   title: '发送邮件',
-    //   screenName: 'SendMail',
-    //   activeIcon: 'mail',
-    //   inactiveIcon: 'mail-outline',
-    //   active: active1,
-    // },
     {
-      title: 'tab2',
+      title: 'haha',
       screenName: 'Tab2',
       activeIcon: 'add-circle',
       inactiveIcon: 'add-circle-outline',
@@ -72,7 +64,7 @@ const BottomTabs = (props) => {
               } catch (e) {
                 console.error(e);
               }
-              props.onTabTap(tabs[index].screenName);
+              props.onTabTap(tabs[index].screenName, tabs[index].title);
             }}
             index={index}
             {...tab}

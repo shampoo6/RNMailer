@@ -1,18 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Text, Button} from 'react-native-elements';
-import {useFocusEffect, useRoute} from '@react-navigation/native';
-import {changeScreen} from '../stores/navigator';
 
-const Tab1Screen = ({dispatch}) => {
-  const route = useRoute();
-  useFocusEffect(
-    React.useCallback(() => {
-      console.log(route);
-      dispatch(changeScreen(route.name));
-    }, [dispatch, route]),
-  );
-
+const Tab1Screen = () => {
   const postLocalNotification = () => {};
 
   return (

@@ -23,7 +23,6 @@ public class NotifyWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        Log.d("info", "doWork: ok");
         // Create an explicit intent for an Activity in your app
         Intent intent = new Intent(context, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

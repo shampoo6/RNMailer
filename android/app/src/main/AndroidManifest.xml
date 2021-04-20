@@ -38,6 +38,8 @@
                 <action android:name="android.intent.action.REBOOT" />
             </intent-filter>
         </receiver>
+
+        <receiver android:name=".AlarmReceiver" />
     </application>
 
 </manifest>

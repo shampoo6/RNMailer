@@ -28,8 +28,6 @@ const App = () => {
           {/* todo 测试代码 */}
           <Navigator
             initialRouteName="Layout"
-            // initialRouteName="Setting"
-            // initialRouteName="Test1"
             screenOptions={{headerShown: false}}>
             <Screen name="Layout" component={LayoutScreenContainer} />
             <Screen name="Setting" component={SettingScreen} />
