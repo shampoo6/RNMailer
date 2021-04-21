@@ -12,6 +12,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.rnmailer.MainActivity;
 import com.rnmailer.R;
+import com.rnmailer.SendMailActivity;
 
 // 发送通知的助手
 public class NotificationHelper {
@@ -47,7 +48,8 @@ public class NotificationHelper {
     // 发送通知
     public void sendNotification(Context context) {
         // Create an explicit intent for an Activity in your app
-        Intent intent = new Intent(context, MainActivity.class);
+//        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, SendMailActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 

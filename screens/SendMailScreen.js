@@ -22,7 +22,6 @@ const SendMailScreen = ({route, navigation}) => {
 
   useEffect(() => {
     console.log('change recordId: ' + recordId);
-
   }, [recordId]);
 
   const contentStyle = {
