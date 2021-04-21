@@ -155,37 +155,6 @@ class Setting extends React.Component {
             <Button title="编辑签名" onPress={() => this.props.onEditSign()} />
           </FormItemContainer>
         </FormItemGroup>
-        {/*<FormItemGroup title={'内容模板'}>
-          <RichEditor
-            // initialFocus={true}
-            editorStyle={this.contentStyle} // default light style
-            ref={this.contentEditor}
-            placeholder={'请输入'}
-            initialContentHTML={this.state.content}
-            onChange={this.handleContentChange}
-          />
-          <RichToolbar
-            editor={this.contentEditor}
-            selectedIconTint={'#2095F2'}
-            disabledIconTint={'#bfbfbf'}
-          />
-        </FormItemGroup>
-        <FormItemGroup title={'签名'}>
-          <RichEditor
-            // initialFocus={true}
-            editorStyle={this.contentStyle} // default light style
-            ref={this.signEditor}
-            placeholder={'请输入'}
-            initialContentHTML={this.state.sign}
-            onChange={this.handleSignChange}
-          />
-          <RichToolbar
-            editor={this.signEditor}
-            selectedIconTint={'#2095F2'}
-            disabledIconTint={'#bfbfbf'}
-            onPressAddImage={this.onPressAddImage}
-          />
-        </FormItemGroup>*/}
       </ScrollView>
     );
   }

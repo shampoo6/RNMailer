@@ -2,6 +2,7 @@ package com.rnmailer;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -9,6 +10,9 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.rnmailer.helper.AlarmHelper;
+import com.rnmailer.helper.NotificationHelper;
+import com.rnmailer.pkg.UtilsPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -28,6 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
                     List<ReactPackage> packages = new PackageList(this).getPackages();
                     // Packages that cannot be autolinked yet can be added manually here, for example:
                     // packages.add(new MyReactNativePackage());
+                    // 注册 自定义包
+                    packages.add(new UtilsPackage());
                     return packages;
                 }
 
@@ -47,6 +53,10 @@ public class MainApplication extends Application implements ReactApplication {
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
         initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+
+        // 注册闹铃
+        NotificationHelper.getInstance().createNotificationChannel(this);
+        AlarmHelper.getInstance().registerAlarm(this);
     }
 
     /**

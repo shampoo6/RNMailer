@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {
   ScrollView,
   TouchableOpacity,
@@ -12,11 +12,18 @@ import mailer from '../utils/mailer';
 import {RichEditor, RichToolbar} from 'react-native-pell-rich-editor';
 import BackHeader from '../components/BackHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import PostRecordList from '../stores/postRecordList';
 
-const SendMailScreen = ({navigation}) => {
+const SendMailScreen = ({route, navigation}) => {
+  const recordId = route.params ? route.params.recordId : undefined;
   const dispatch = useDispatch();
   const editor = useRef();
   const [disableBtn, setDisableBtn] = useState(false);
+
+  useEffect(() => {
+    console.log('change recordId: ' + recordId);
+
+  }, [recordId]);
 
   const contentStyle = {
     backgroundColor: '#fff',
@@ -38,6 +45,13 @@ const SendMailScreen = ({navigation}) => {
 
   dispatch(getTemplate()).then((_template) => {
     template = Object.assign({}, _template);
+    if (recordId) {
+      PostRecordList.getInstance()
+        .getOne(recordId)
+        .then((r) => {
+          template.content = r.content;
+        });
+    }
   });
 
   const sendMail = () => {
@@ -45,7 +59,6 @@ const SendMailScreen = ({navigation}) => {
     mailer.sendMail(template).then((result) => {
       console.log(result);
       if (result) {
-        // toast.current.show('发送成功 ', 5000);
         ToastAndroid.showWithGravityAndOffset(
           '发送成功',
           5000,
@@ -53,8 +66,10 @@ const SendMailScreen = ({navigation}) => {
           0,
           50,
         );
+        // 保存已发送的数据
+        let record = Object.assign({sendTime: Date.now()}, template);
+        PostRecordList.getInstance().insert(record);
       } else {
-        // toast.current.show('发送失败 请重试 ', 5000);
         ToastAndroid.showWithGravityAndOffset(
           '发送失败 请重试',
           5000,

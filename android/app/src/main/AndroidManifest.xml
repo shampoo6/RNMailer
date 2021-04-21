@@ -30,7 +30,7 @@
         </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
-        <receiver android:name=".BootUpReceiver">
+        <receiver android:name=".receiver.BootUpReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
@@ -39,7 +39,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".AlarmReceiver" />
+        <receiver android:name=".receiver.AlarmReceiver" />
     </application>
 
 </manifest>

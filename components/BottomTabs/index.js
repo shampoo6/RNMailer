@@ -18,21 +18,28 @@ const styles = StyleSheet.create({
 });
 
 const BottomTabs = (props) => {
-  const [active1, setActive1] = useState(false);
-  const [active2, setActive2] = useState(true);
+  const [active1, setActive1] = useState(true);
+  const [active2, setActive2] = useState(false);
 
   const setActives = [setActive1, setActive2];
 
   let tabs = [
     {
-      title: 'hehe',
-      screenName: 'Tab1',
+      title: '已发送',
+      screenName: 'RecordList',
       activeIcon: 'add-circle',
       inactiveIcon: 'add-circle-outline',
       active: active1,
     },
+    // {
+    //   title: '已发送',
+    //   screenName: 'Tab1',
+    //   activeIcon: 'add-circle',
+    //   inactiveIcon: 'add-circle-outline',
+    //   active: active1,
+    // },
     {
-      title: 'haha',
+      title: '任务管理',
       screenName: 'Tab2',
       activeIcon: 'add-circle',
       inactiveIcon: 'add-circle-outline',

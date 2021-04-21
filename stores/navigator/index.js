@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 export const slice = createSlice({
   name: 'navigator',
   initialState: {
-    screenName: 'Home',
+    screenName: '已发送',
   },
   reducers: {
     changeScreen: (state, action) => {
