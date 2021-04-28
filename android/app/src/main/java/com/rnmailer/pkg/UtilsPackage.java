@@ -8,6 +8,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.rnmailer.module.AlertModule;
 import com.rnmailer.module.NotificationModule;
+import com.rnmailer.module.StorageModule;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +24,7 @@ public class UtilsPackage implements ReactPackage {
         ArrayList<NativeModule> modules = new ArrayList<>();
         modules.add(new AlertModule(reactContext));
         modules.add(new NotificationModule(reactContext));
+        modules.add(new StorageModule(reactContext));
         return modules;
     }
 

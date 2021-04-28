@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
-import storage from '../storage';
+// import storage from '../storage';
+import storage from '../myStorage';
 import {useSelector} from 'react-redux';
 
 const defaultTemplate = {
@@ -61,7 +62,7 @@ export const getTemplate = () => (dispatch) => {
     if (template.email) {
       resolve(template);
     } else {
-      // todo 读取storage
+      // 读取storage
       storage
         .load({
           key: 'email',
@@ -83,12 +84,19 @@ export const getTemplate = () => (dispatch) => {
 };
 
 const saveState = (state) => {
-  storage.save({
-    key: 'email',
-    id: 'template',
-    data: state,
-    expires: null,
-  });
+  storage
+    .save({
+      key: 'email',
+      id: 'template',
+      data: state,
+      expires: null,
+    })
+    .then((r) => {
+      // console.log(r);
+    })
+    .catch((reason) => {
+      console.error(reason);
+    });
 };
 
 export default slice.reducer;

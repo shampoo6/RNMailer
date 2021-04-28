@@ -4,7 +4,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
+import com.reactnativecommunity.asyncstorage.ReactDatabaseSupplier;
 import com.rnmailer.constants.ActivityStatus;
+import com.rnmailer.helper.DBHelper;
 
 public class MainActivity extends ReactActivity {
     public static String MAIN_STATUS_KEY = "MAIN_STATUS_KEY";
@@ -17,6 +19,8 @@ public class MainActivity extends ReactActivity {
         super.onCreate(savedInstanceState);
         sp = getSharedPreferences(MAIN_STATUS_KEY, 0);
         sp.edit().putString(STATUS, ActivityStatus.Front.name()).apply();
+
+        ReactDatabaseSupplier rdbs = ReactDatabaseSupplier.getInstance(this);
     }
 
     @Override
@@ -34,6 +38,7 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onDestroy() {
         sp.edit().putString(STATUS, ActivityStatus.ShutDown.name()).apply();
+        DBHelper.getInstance(this).close();
         super.onDestroy();
     }
 

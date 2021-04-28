@@ -1,6 +1,7 @@
 package com.rnmailer;
 
 import com.facebook.react.ReactActivity;
+import com.rnmailer.helper.DBHelper;
 
 public class SendMailActivity extends ReactActivity {
     /**
@@ -10,5 +11,11 @@ public class SendMailActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "SendMailActivity";
+    }
+
+    @Override
+    protected void onDestroy() {
+        DBHelper.getInstance(this).close();
+        super.onDestroy();
     }
 }

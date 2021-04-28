@@ -103,9 +103,11 @@ class PostRecordList {
   }
 }
 
-PostRecordList.prototype.instance = new PostRecordList();
 PostRecordList.getInstance = () => {
-  return PostRecordList.prototype.instance;
+  if (!PostRecordList.instance) {
+    PostRecordList.instance = new PostRecordList();
+  }
+  return PostRecordList.instance;
 };
 
 export default PostRecordList;
